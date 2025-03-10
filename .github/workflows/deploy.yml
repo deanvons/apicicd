@@ -12,8 +12,6 @@ permissions:
   id-token: write  # ✅ Allows GitHub to request an OpenID Connect (OIDC) token
   contents: read   # ✅ Allows GitHub Actions to read the repo contents
 
-environment: production
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -51,6 +49,7 @@ jobs:
   deploy:
     needs: build-and-push  # Runs after the image is pushed to ACR
     runs-on: ubuntu-latest
+    environment: production
 
     steps:
       # ✅ Step 6: Log in to Azure
