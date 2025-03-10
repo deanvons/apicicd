@@ -38,7 +38,7 @@ jobs:
       - name: Build Docker Image
         run: |
           IMAGE_TAG=v1
-          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/weatherstationcicd:$IMAGE_TAG .
+          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/weatherstationcicd:$IMAGE_TAG -f weatherstationCICD/Dockerfile weatherstationCICD/
 
       # ✅ Step 5: Push the Docker Image to ACR (Use v1 instead of latest)
       - name: Push Docker Image
